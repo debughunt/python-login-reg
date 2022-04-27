@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container d-flex">
+        <div class="container bg-dark bg-gradient text-light">
+            <h1>Register</h1>
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            {% for message in messages %}
+            <p>{{message}}</p>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+            <form action="/register/" method="post">
+                <div class="mb-3">
+                    <label for="user_fname" class="form-label">First Name:</label>
+                    <input type="text" class="form-control" id="user_fname" name="first_name">
+                </div>
+                <div class="mb-3">
+                    <label for="user_lname" class="form-label">Last Name:</label>
+                    <input type="text" class="form-control" id="user_lname" name="last_name">
+                </div>
+                <div class="mb-3">
+                    <label for="user_email" class="form-label">Email address:</label>
+                    <input type="text" class="form-control" id="user_email" name="email" aria-describedby="emailHelp">
+                    <div id="emailHelp" class="form-text"></div>
+                </div>
+                <div class="mb-3">
+                    <label for="user_password" class="form-label">Password:</label>
+                    <input type="password" class="form-control" id="user_password" name="password">
+                </div>
+                <div class="mb-3">
+                    <label for="confirm_password" class="form-label">Confirm Password:</label>
+                    <input type="password" class="form-control" id="confirm_password" name="pass_conf">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+        <!-- End of reg form -->
+        <div class="container container bg-dark bg-gradient text-light">
+            <h1>Login</h1>
+            <form action="/login/" method="post">
+                <div class="mb-3">
+                    <label for="user_email" class="form-label">Email address</label>
+                    <input type="text" class="form-control" id="user_email" name="email">
+                </div>
+                <div class="mb-3">
+                    <label for="user_password" class="form-label">Password</label>
+                    <input type="password" class="form-control" id="user_password" name="password">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
